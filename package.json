@@ -1,0 +1,26 @@
+{
+  "name": "12-sql-challenge-employee-tracker",
+  "version": "1.0.0",
+  "description": "## Table of Contents    - [Description](#description)   - [User Story](#user-story)   - [Installation](#installation)   - [Usage](#usage)   - [Screenshot & Walkrhtough Video](#screenshot--walkthrough-video)   - [Contribution](#repository-link)   - [Questions](#questions)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shuyu-Sun/12-SQL-Challenge-Employee-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shuyu-Sun/12-SQL-Challenge-Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/Shuyu-Sun/12-SQL-Challenge-Employee-Tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.0.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  }
+}

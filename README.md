@@ -32,10 +32,11 @@
   5. npm i inquirer
   6. npm i mysql
   7. npm i console.table
-  8. make sure to run .sql file in mySQL workbench before running server.js so that tables are able to render correctly
-  9. run node server.js
-  10. make sure server.js is connected to SQL before continuing
-  11. run through prompts as required
+  8. npm install --save mysql2
+  9. make sure to run .sql file in mySQL workbench before running index.js so that tables are able to render correctly
+  10. run node index.js
+  11. make sure index.js is connected to SQL before continuing
+  12. run through prompts as required
 
   ## Screenshot & Walkthrough Video
   ![Sample README](./Develop/img/Sample-README-File.png)
