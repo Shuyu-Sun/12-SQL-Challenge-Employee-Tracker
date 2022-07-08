@@ -5,6 +5,10 @@ require("console.table");
 
 //mysql connection
 const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'p@ssw0rd',
+  database: 'employee_tracker'
   });  
 
 const PORT = process.env.PORT || 3001;
@@ -69,19 +73,19 @@ function searchPrompt() {
     });
   }
 
-  //View all departments function
+//View all departments function
   function viewDepts() {
-    connection.query("SELECT * FROM department", function(err, res, fields){
+    connection.query("SELECT * FROM department", function(err, res){
       if (err) throw err;
       console.table(res);
       searchPrompt();
     });
   };
 
-  //View all roles function
+//View all roles function
   function viewRole() {
     connection.query(
-      "SELECT role.id, role.title, role.salary, role.department_id, department.id, department.name FROM role LEFT JOIN department on role.department_id = department.id",
+      "SELECT role.title, role.id, role.salary, role.department_id, department.id, department.name FROM role LEFT JOIN department on role.department_id = department.id",
       function (err, res) {
         if (err) throw err;
         console.table(res);
@@ -92,7 +96,7 @@ function searchPrompt() {
 //View all employees function
   function viewEmployee(){
     connection.query(
-      "SELECT employee.id, employee.first_name, employee.last_name, role.id, role.title, role.salary",
+      "SELECT employee.id, employee.first_name, employee.last_name, employee.role_id, employee.manager_id, role.title, role.id, role.salary department.id FROM employee LEFT JOIN role ON employee.role_id = role.id",
         function (err, res) {
           if (err) throw err;
         console.table(res);
