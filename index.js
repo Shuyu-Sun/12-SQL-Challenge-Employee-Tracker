@@ -12,11 +12,11 @@ const PORT = process.env.PORT || 3001;
   connection.connect((err) => {
     if (err) throw err;
   
-    searchEmployee();
+    searchPrompt();
   });
 
 //Run function
-function searchEmployee() {
+function searchPrompt() {
   inquirer
     .prompt({
       name: "selection",
@@ -37,7 +37,7 @@ function searchEmployee() {
         console.log(answer);
       
       if (answer.selection === "View all departments") {
-        viewAll();
+        viewDepts();
       }
       else if(answer.selection === "View all roles") {
         viewRole();
@@ -68,4 +68,36 @@ function searchEmployee() {
       }
     });
   }
-  
+
+  //View all departments function
+  function viewDepts() {
+    connection.query("SELECT * FROM department", function(err, res, fields){
+      if (err) throw err;
+      console.table(res);
+      searchPrompt();
+    });
+  };
+
+  //View all roles function
+  function viewRole() {
+    connection.query(
+      "SELECT role.id, role.title, role.salary, role.department_id, department.id, department.name FROM role LEFT JOIN department on role.department_id = department.id",
+      function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        searchPrompt();
+      });
+  };
+
+//View all employees function
+  function viewEmployee(){
+    connection.query(
+      "SELECT employee.id, employee.first_name, employee.last_name, role.id, role.title, role.salary",
+        function (err, res) {
+          if (err) throw err;
+        console.table(res);
+        searchPrompt();
+        }
+      );
+  };
+
