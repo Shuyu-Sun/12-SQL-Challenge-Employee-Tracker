@@ -38,10 +38,6 @@
   11. make sure index.js is connected to SQL before continuing
   12. run through prompts as required
 
-  ## Screenshot & Walkthrough Video
-  ![Sample README](./Develop/img/Sample-README-File.png)
-  ![Terminal Input](./Develop/img/Terminal-Input.png)
-  [![Watch the video](./Develop/img/README-generator-walk-through-video.png)](https://youtu.be/Nr_Mrgcgehw)
 
   ## Repository link
   https://github.com/Shuyu-Sun/12-SQL-Challenge-Employee-Tracker

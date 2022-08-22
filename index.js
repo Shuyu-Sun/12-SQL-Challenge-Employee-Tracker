@@ -1,9 +1,7 @@
-//require dependencies
 const inquirer = require("inquirer");
 const mysql = require("mysql");
 require("console.table");
 
-//mysql connection
 const connection = mysql.createConnection({
   host: "127.0.0.1",
   port: 3001,
@@ -18,7 +16,6 @@ connection.connect((err) => {
   searchPrompt();
 });
 
-//Run function
 function searchPrompt() {
   inquirer
     .prompt({
@@ -58,7 +55,6 @@ function searchPrompt() {
     });
 }
 
-//View all departments function
 function viewDepts() {
   connection.query("SELECT * FROM department", function (err, res) {
     if (err) throw err;
@@ -67,7 +63,6 @@ function viewDepts() {
   });
 }
 
-//View all roles function
 function viewRole() {
   connection.query(
     "SELECT role.title, role.id, role.salary, role.department_id, department.id, department.name FROM role LEFT JOIN department on role.department_id = department.id",
@@ -79,7 +74,6 @@ function viewRole() {
   );
 }
 
-//View all employees function
 function viewEmployee() {
   connection.query(
     "SELECT employee.id, employee.first_name, employee.last_name, employee.role_id, role.title, role.salary, department.name, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee INNER JOIN role ON employee.role_id = role.id INNER JOIN department ON role.department_id = department.id LEFT JOIN employee manager ON manager.id = employee.manager_id",
